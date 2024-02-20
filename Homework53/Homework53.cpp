@@ -97,7 +97,7 @@ private:
     Printer printer;
     GraphicsCard graphicsCard;
 public:
-    Laptop(Processor p, RAM r, Mouse m, Webcam w, Printer pr, GraphicsCard g) {
+    Laptop(Processor p, RAM r, Mouse* m, Webcam w, Printer pr, GraphicsCard g) {
         processor = p;
         ram = r;
         mouse = m;
@@ -108,7 +108,7 @@ public:
     void printSpecs() {
         cout << "Процессор: " << processor.getModel() << endl;
         cout << "Оперативка: " << ram.getGB() << "GB" << endl;
-        cout << "Мышка: " << mouse.getBrand() << endl;
+        cout << "Мышка: " << mouse*.getBrand() << endl;
         cout << "Камера: " << webcam.getResolution() << endl;
         cout << "Принтер: " << printer.getType() << endl;
         cout << "Видюха: " << graphicsCard.getChipset() << endl;
