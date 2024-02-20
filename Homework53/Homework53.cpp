@@ -93,7 +93,7 @@ private:
     Processor processor;
     RAM ram;
     Mouse mouse;
-    Webcam webcam;
+    Webcam* webcam;
     Printer printer;
     GraphicsCard graphicsCard;
 public:
