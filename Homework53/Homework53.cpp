@@ -12,7 +12,7 @@ public:
         model = m;
     }
     string getModel() {
-        return model; 
+        return model;
     }
 };
 
@@ -20,14 +20,14 @@ class RAM {
 private:
     int GB;
 public:
-    RAM(){
+    RAM() {
 
     }
     RAM(int s) {
         GB = s;
     }
     int getGB() {
-        return GB; 
+        return GB;
     }
 };
 
@@ -70,7 +70,7 @@ public:
     Printer(string t) {
         type = t;
     }
-    string getType() { 
+    string getType() {
         return type;
     }
 };
@@ -85,15 +85,17 @@ public:
     GraphicsCard(string c) {
         modelCard = c;
     }
-    string getChipset() { return modelCard; }
+    string getChipset() {
+        return modelCard;
+    }
 };
 
 class Laptop {
 private:
     Processor processor;
     RAM ram;
-    Mouse mouse;
-    Webcam* webcam;
+    Mouse* mouse;
+    Webcam webcam;
     Printer printer;
     GraphicsCard graphicsCard;
 public:
@@ -108,7 +110,7 @@ public:
     void printSpecs() {
         cout << "Процессор: " << processor.getModel() << endl;
         cout << "Оперативка: " << ram.getGB() << "GB" << endl;
-        cout << "Мышка: " << mouse*.getBrand() << endl;
+        cout << "Мышка: " << mouse->getBrand() << endl;
         cout << "Камера: " << webcam.getResolution() << endl;
         cout << "Принтер: " << printer.getType() << endl;
         cout << "Видюха: " << graphicsCard.getChipset() << endl;
@@ -123,6 +125,7 @@ int main() {
     Printer printer("Laser");
     GraphicsCard graphicsCard("NVIDIA GeForce GTX 1080TI");
 
-    Laptop laptop(processor, ram, mouse, webcam, printer, graphicsCard);
+    Laptop laptop(processor, ram, &mouse, webcam, printer, graphicsCard); 
     laptop.printSpecs();
+    return 0;
 }
